@@ -269,9 +269,11 @@ begin
 					else 
 						COLLISION_FLAG <= '0';
 						TRNSMTP_aux <= '0';
+						TDONEP <= '1';--Terminaison de la transmission par un TABORT
 						compteur_bit_collision := 0;
 						--On passe en backoff maintenant
 						BACKOFF_T <= x"0000" & LFSR_REG( 8 downto 0);
+						--BACKOFF_T <= x"00000" & "00010"; --test TABORT pour aller plus vite
 						TBACKOFF <= '1';
 						--On incrémente le nombre de collision
 						nb_coll_conseq := nb_coll_conseq + 1;
@@ -370,7 +372,7 @@ begin
 						--
 						TDATAO <= TDATAI ;
 						TREADDP <= '1';
-						if(TLASTP='1') THEN
+						if(TLASTP='1') then
 							compteur_step := compteur_step+1;
 						end if;
 					elsif(compteur_step =4) then

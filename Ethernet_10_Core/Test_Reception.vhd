@@ -102,7 +102,7 @@ ARCHITECTURE behavior OF Test_Reception IS
  
 BEGIN
  
-	-- Ins,tantiate the Unit Under Test (UUT)
+	-- Instantiate the Unit Under Test (UUT)
    uut: Ethernet PORT MAP (
           RBYTEP => RBYTEP,
           RCLEANP => RCLEANP,
@@ -147,12 +147,12 @@ BEGIN
 	-- insert stimulus here 
 --	RESETN <= '0','1' after 10ns;
 --	RENABP <= '0','1' after 90ns;
---	
---	
---	--
---	-- BONNE ADRESSE
---	--
---	-- Tous les 8 tops d'horlogeon change de case de la trame
+----	
+----	
+----	--
+----	-- BONNE ADRESSE et ensuite mauvaise addresse
+----	--
+----	-- Tous les 8 tops d'horloge on change de case de la trame
 --	RDATAI <= "10101011",
 --	X"AA" after 160ns,
 --	X"BB" after 240ns,
@@ -176,10 +176,36 @@ BEGIN
 --	"10101011" after 1960ns;
 	
 --	-- TRANSMISSION TEST avec TABORT
---	RESETN <= '0','1' after 25 ns;
+	RESETN <= '0','1' after 25 ns;
+	-- faudra mettre TAVAILP à 0
+   TAVAILP <= '0','1' after 90ns;
+   TABORTP <= '0','1' after 800ns ,'0' after 1000ns,'1' after 1160ns; --Test Arret brutal de transmission
+	
+	TDATAI <= X"00",
+	X"AA" after 160ns,
+	X"BC" after 240ns,
+	X"CD" after 320ns,
+	X"DE" after 400ns,
+	X"EF" after 480ns,
+	X"FA" after 560ns,
+	X"01" after 640ns,
+	X"11" after 880ns,
+	"10101011" after 960ns,
+	"10101111" after 1040ns, 
+	"11110000" after 1120ns,-- (560 + 80 + 480 = 1120 ns)à partir de mtn Ces données seront ensuite transmis
+	"00001111" after 1200ns,
+	"00110011" after 1280ns,
+	"11001100" after 1360ns,
+	"00000000" after 1440ns;
+
+	--TLASTP<='0','1' after 1360ns;
+
+
+--	-- Collision Test
+--	RESETN <= '0','1' after 10ns;
 --	-- faudra mettre TAVAILP à 0
---   TAVAILP <= '0','1' after 90ns;
---   TABORTP <= '0','1' after 800ns,'0' after 1000ns;
+--   TAVAILP <= '0','1' after 90ns, '0' after 1140 ns;
+--   --TABORTP <= '0','1' after 800ns,'0' after 1000ns;
 --	
 --	TDATAI <= X"00",
 --	X"AA" after 160ns,
@@ -192,67 +218,41 @@ BEGIN
 --	X"11" after 880ns,
 --	"10101011" after 960ns,
 --	"00000000" after 1040ns,
---	"11110000" after 1060ns,
---	"00001111" after 1140ns,
---	"00110011" after 1220ns,
---	"11001100" after 1300ns,
---	"00000000" after 1380ns;
---
---	TLASTP<='0','1' after 1300ns;
-
-
-	-- Collision Test
-	RESETN <= '0','1' after 10ns;
-	-- faudra mettre TAVAILP à 0
-   TAVAILP <= '0','1' after 90ns, '0' after 1140 ns;
-   --TABORTP <= '0','1' after 800ns,'0' after 1000ns;
-	
-	TDATAI <= X"00",
-	X"AA" after 160ns,
-	X"CC" after 240ns,
-	X"BB" after 320ns,
-	X"DD" after 400ns,
-	X"FF" after 480ns,
-	X"EE" after 560ns,
-	X"01" after 640ns,
-	X"11" after 880ns,
-	"10101011" after 960ns,
-	"00000000" after 1040ns,
-	X"AA" after 1160ns,
-	X"CC" after 1240ns,
-	X"BB" after 1320ns,
-	X"DD" after 1400ns,
-	X"FF" after 1480ns,
-	X"EE" after 1560ns,
-	X"01" after 1640ns,
-	X"11" after 1880ns,
-	"10101011" after 1960ns,
-	"00000000" after 2040ns;
-	
-	RENABP <= '0','1' after 800ns;
-	RDATAI <= "00000000", 
-	"10101011" after 800ns,
-	X"AA" after 880ns,
-	X"BB" after 960ns,
-	X"CC" after 1040ns,
-	X"DD" after 1120ns,
-	X"EE" after 1200ns,
-	X"FF" after 1280ns,
-	X"01" after 1360ns,
-	X"11" after 1440ns,
-	"10101011" after 1520ns,
-	"00000000" after 1600ns, 
-	"10101011" after 1800ns,
-	X"AA" after 1880ns,
-	X"BB" after 1960ns,
-	X"CC" after 2040ns,
-	X"DD" after 2120ns,
-	X"EE" after 2200ns,
-	X"FF" after 2280ns,
-	X"01" after 2360ns,
-	X"11" after 2440ns,
-	"10101011" after 2520ns,
-	"00000000" after 2600ns;
-	
-	TLASTP<='0','1' after 1300ns, '0' after 1400 ns, '1' after 2300 ns, '0' after 2400 ns;
+--	X"AA" after 1160ns,
+--	X"CC" after 1240ns,
+--	X"BB" after 1320ns,
+--	X"DD" after 1400ns,
+--	X"FF" after 1480ns,
+--	X"EE" after 1560ns,
+--	X"01" after 1640ns,
+--	X"11" after 1880ns,
+--	"10101011" after 1960ns,
+--	"00000000" after 2040ns;
+--	
+--	RENABP <= '0','1' after 800ns;
+--	RDATAI <= "00000000", 
+--	"10101011" after 800ns,
+--	X"AA" after 880ns,
+--	X"BB" after 960ns,
+--	X"CC" after 1040ns,
+--	X"DD" after 1120ns,
+--	X"EE" after 1200ns,
+--	X"FF" after 1280ns,
+--	X"01" after 1360ns,
+--	X"11" after 1440ns,
+--	"10101011" after 1520ns,
+--	"00000000" after 1600ns, 
+--	"10101011" after 1800ns,
+--	X"AA" after 1880ns,
+--	X"BB" after 1960ns,
+--	X"CC" after 2040ns,
+--	X"DD" after 2120ns,
+--	X"EE" after 2200ns,
+--	X"FF" after 2280ns,
+--	X"01" after 2360ns,
+--	X"11" after 2440ns,
+--	"10101011" after 2520ns,
+--	"00000000" after 2600ns;
+--	
+--	TLASTP<='0','1' after 1300ns, '0' after 1400 ns, '1' after 2300 ns, '0' after 2400 ns;
 END;
