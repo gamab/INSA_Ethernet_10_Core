@@ -1,0 +1,24 @@
+Running: /home/gb/.Xilinx/14.3/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/gb/Documents/4IR/Ethernet_10_Core/Test_Reception_isim_beh.exe -prj /home/gb/Documents/4IR/Ethernet_10_Core/Test_Reception_beh.prj work.Test_Reception 
+ISim P.40xd (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/gb/Documents/4IR/Ethernet_10_Core/Ethernet.vhd" into library work
+Parsing VHDL file "/home/gb/Documents/4IR/Ethernet_10_Core/Test_Reception.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 96492 KB
+Fuse CPU Usage: 1340 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture behavioral of entity Ethernet [ethernet_default]
+Compiling architecture behavior of entity test_reception
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 7 VHDL Units
+Built simulation executable /home/gb/Documents/4IR/Ethernet_10_Core/Test_Reception_isim_beh.exe
+Fuse Memory Usage: 668896 KB
+Fuse CPU Usage: 1450 ms
+GCC CPU Usage: 3090 ms

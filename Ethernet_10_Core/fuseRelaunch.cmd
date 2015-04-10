@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/gb/Documents/4IR/Ethernet_10_Core/Test_Reception_isim_beh.exe" -prj "/home/gb/Documents/4IR/Ethernet_10_Core/Test_Reception_beh.prj" "work.Test_Reception" 
