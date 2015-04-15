@@ -233,7 +233,7 @@ begin
 		TSTARTP <= '0';
 	   TREADDP <= '0';
 		TDONEP <= '0';
-		
+				
 		if RESETN='0' then 
 			compteur := 7;
 			compteurAddr := 0;
@@ -272,11 +272,15 @@ begin
 						TDONEP <= '1';--Terminaison de la transmission par un TABORT
 						compteur_bit_collision := 0;
 						--On passe en backoff maintenant
-						BACKOFF_T <= x"0000" & LFSR_REG( 8 downto 0);
+						--BACKOFF_T <= x"0000" & LFSR_REG( 8 downto 0);
+						--test Collision multiple pour aller plus vite
+						BACKOFF_T <= x"00000" & LFSR_REG( 4 downto 0); 
 						--BACKOFF_T <= x"00000" & "00010"; --test TABORT pour aller plus vite
 						TBACKOFF <= '1';
 						--On incrémente le nombre de collision
 						nb_coll_conseq := nb_coll_conseq + 1;
+						--Plus de data à transmettre
+						TDATAO <= X"00";
 					end if;
 				end if;
 			elsif TAVAILP='1' then
@@ -286,6 +290,7 @@ begin
 				compteur := compteur +1;
 				--Tous les 8 clock on lit un octet
 				if (compteur = 8) then -- octet reçu 
+						
 					--COUNTER_CHECK <= '1';
 					--remise du compteur de top d'horloge à 0
 					compteur:=0;

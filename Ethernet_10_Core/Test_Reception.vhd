@@ -89,8 +89,8 @@ ARCHITECTURE behavior OF Test_Reception IS
    signal RDONEP : std_logic;
    signal RSMATIP : std_logic;
    signal RSTARTP : std_logic;
-	signal COUNTER_CHECK : std_logic;
-   signal DIFF_CHECK : std_logic_vector(2 downto 0);
+	--signal COUNTER_CHECK : std_logic;
+   --signal DIFF_CHECK : std_logic_vector(2 downto 0);
    signal TSOCOLP : std_logic;
    signal TRNSMTP : std_logic;
    signal TDATAO : std_logic_vector(7 downto 0);
@@ -176,32 +176,32 @@ BEGIN
 --	"10101011" after 1960ns;
 	
 --	-- TRANSMISSION TEST avec TABORT
-	RESETN <= '0','1' after 25 ns;
-	-- faudra mettre TAVAILP à 0
-   TAVAILP <= '0','1' after 90ns;
-   TABORTP <= '0','1' after 800ns ,'0' after 1000ns,'1' after 1160ns; --Test Arret brutal de transmission
-	
-	TDATAI <= X"00",
-	X"AA" after 160ns,
-	X"BC" after 240ns,
-	X"CD" after 320ns,
-	X"DE" after 400ns,
-	X"EF" after 480ns,
-	X"FA" after 560ns,
-	X"01" after 640ns,
-	X"11" after 880ns,
-	"10101011" after 960ns,
-	"10101111" after 1040ns, 
-	"11110000" after 1120ns,-- (560 + 80 + 480 = 1120 ns)à partir de mtn Ces données seront ensuite transmis
-	"00001111" after 1200ns,
-	"00110011" after 1280ns,
-	"11001100" after 1360ns,
-	"00000000" after 1440ns;
+--	RESETN <= '0','1' after 25 ns;
+--	-- faudra mettre TAVAILP à 0
+--   TAVAILP <= '0','1' after 90ns;
+--   TABORTP <= '0','1' after 800ns ,'0' after 1000ns,'1' after 1160ns; --Test Arret brutal de transmission
+--	
+--	TDATAI <= X"00",
+--	X"AA" after 160ns,
+--	X"BC" after 240ns,
+--	X"CD" after 320ns,
+--	X"DE" after 400ns,
+--	X"EF" after 480ns,
+--	X"FA" after 560ns,
+--	X"01" after 640ns,
+--	X"11" after 880ns,
+--	"10101011" after 960ns,
+--	"10101111" after 1040ns, 
+--	"11110000" after 1120ns,-- (560 + 80 + 480 = 1120 ns)à partir de mtn Ces données seront ensuite transmis
+--	"00001111" after 1200ns,
+--	"00110011" after 1280ns,
+--	"11001100" after 1360ns,
+--	"00000000" after 1440ns;
 
 	--TLASTP<='0','1' after 1360ns;
 
 
---	-- Collision Test
+----	-- Collision Test
 --	RESETN <= '0','1' after 10ns;
 --	-- faudra mettre TAVAILP à 0
 --   TAVAILP <= '0','1' after 90ns, '0' after 1140 ns;
@@ -255,4 +255,54 @@ BEGIN
 --	"00000000" after 2600ns;
 --	
 --	TLASTP<='0','1' after 1300ns, '0' after 1400 ns, '1' after 2300 ns, '0' after 2400 ns;
+
+	-- Collision Multiple Test (310 ns de backoff max.
+	RESETN <= '0','1' after 10ns;
+	-- faudra mettre TAVAILP à 0
+   TAVAILP <= '0','1' after 90ns, '0' after 880ns, '1' after 1530ns, '0' after 1920ns;
+   --TABORTP <= '0','1' after 800ns,'0' after 1000ns;
+	
+	TDATAI <= X"00",
+	X"AA" after 160ns,
+	X"CC" after 240ns,
+	X"BB" after 320ns,
+	X"DD" after 400ns,
+	X"FF" after 480ns,
+	X"EE" after 560ns,
+	X"00" after 640ns,
+	X"01" after 1200ns,
+	X"02" after 1280ns,
+	X"00" after 1360ns,
+	X"AA" after 1680ns,
+	X"CC" after 1760ns,
+	X"BB" after 1840ns,
+	X"DD" after 1920ns,
+	X"FF" after 2000ns,
+	X"EE" after 2080ns,
+	X"00" after 2640ns,
+	X"01" after 2720ns,
+	X"02" after 2800ns,
+	X"00" after 2880ns;
+	
+	RENABP <= '0','1' after 800ns;
+	RDATAI <= "00000000", 
+	X"AB" after 800ns,
+	X"AA" after 880ns,
+	X"BB" after 960ns,
+	"10101010" after 1040ns,
+	"10101010" after 1120ns,
+	"10101010" after 1200ns,
+	"10101010" after 1280ns,
+	X"00" after 1360ns,
+	X"AB" after 1840ns,
+	X"AA" after 1920ns,
+	X"BB" after 2000ns,
+	"10101010" after 2080ns,
+	"10101010" after 2160ns,
+	"10101010" after 2240ns,
+	"10101010" after 2320ns,
+	X"00" after 2400ns;
+	
+	
+	TLASTP<='0';
 END;

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-04-10T08:44:24</DateModified>
+  <DateModified>2015-04-15T20:29:07</DateModified>
   <ModuleName>Ethernet</ModuleName>
   <SummaryTimeStamp>2015-03-11T10:05:00</SummaryTimeStamp>
-  <SavedFilePath>/home/gb/Documents/4IR/Ethernet_10_Core/iseconfig/Ethernet.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/gb/Documents/4IR/Ethernet_10_Core/</ImplementationReportsDirectory>
+  <SavedFilePath>/home/gb/Documents/4IR/FPGA-Proj/INSA_Ethernet_10_Core/Ethernet_10_Core/iseconfig/Ethernet.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/gb/Documents/4IR/FPGA-Proj/INSA_Ethernet_10_Core/Ethernet_10_Core/</ImplementationReportsDirectory>
   <DateInitialized>2015-02-23T14:03:45</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

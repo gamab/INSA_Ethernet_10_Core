@@ -8,7 +8,7 @@
 <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/gb/Documents/4IR/Ethernet_10_Core/Ethernet.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/gb/Documents/4IR/FPGA-Proj/INSA_Ethernet_10_Core/Ethernet_10_Core/Test_Reception.vhd&quot; into library work</arg>
 </msg>
 
 </messages>
