@@ -244,6 +244,7 @@ begin
 			nb_coll_conseq := 0;
 			TCOLLMUL <= '0';
 			TRNSMTP_aux <= '0';
+			TDATAO <= X"00";
 		else
 			if nb_coll_conseq = 2 then
 				TCOLLMUL <= '1';
