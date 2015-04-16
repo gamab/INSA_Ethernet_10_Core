@@ -273,6 +273,7 @@ begin
 						TRNSMTP_aux <= '0';
 						TDONEP <= '1';--Terminaison de la transmission par un TABORT
 						compteur_bit_collision := 0;
+						compteur:=7; --On remet le compteur à 7 pour qu'on puisse retransmettre directement après le backoff
 						--On passe en backoff maintenant
 						--BACKOFF_T <= x"0000" & LFSR_REG( 8 downto 0);
 						--test Collision multiple pour aller plus vite

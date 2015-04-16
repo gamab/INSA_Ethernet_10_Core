@@ -193,32 +193,60 @@ BEGIN
 --	X"00" after 1360ns;
 
 --	-- MULTIPLE TRANSMISSION TEST
-	RESETN <= '0','1' after 25 ns;
-	TAVAILP <= '0','1' after 90 ns, '0' after 1450 ns, '1' after 1530 ns, '0' after 2890 ns;
-	TABORTP <= '0';
-	TLASTP<='0','1' after 1280 ns,'0' after 1360 ns,'1' after 2720 ns,'0' after 2800 ns;
-	
-	TDATAI <= X"00",
-	X"1A" after 160 ns,
-	X"2B" after 240 ns,
-	X"3C" after 320 ns,
-	X"4D" after 400 ns,
-	X"5E" after 480 ns,
-	X"6F" after 560 ns,
-	X"00" after 640 ns,
-	X"01" after 1200 ns,
-	X"02" after 1280 ns,
-	X"00" after 1360 ns,
-	X"1A" after 1600 ns,
-	X"2B" after 1680 ns,
-	X"3C" after 1760 ns,
-	X"4D" after 1840 ns,
-	X"5E" after 1920 ns,
-	X"6F" after 2000 ns,
-	X"00" after 2080 ns,
-	X"01" after 2640 ns,
-	X"02" after 2720 ns,
-	X"00" after 2800 ns;
+--	RESETN <= '0','1' after 25 ns;
+--	TAVAILP <= '0','1' after 90 ns, '0' after 1450 ns, '1' after 1530 ns, '0' after 2890 ns;
+--	TABORTP <= '0';
+--	TLASTP<='0','1' after 1280 ns,'0' after 1360 ns,'1' after 2720 ns,'0' after 2800 ns;
+--	
+--	TDATAI <= X"00",
+--	X"1A" after 160 ns,
+--	X"2B" after 240 ns,
+--	X"3C" after 320 ns,
+--	X"4D" after 400 ns,
+--	X"5E" after 480 ns,
+--	X"6F" after 560 ns,
+--	X"00" after 640 ns,
+--	X"01" after 1200 ns,
+--	X"02" after 1280 ns,
+--	X"00" after 1360 ns,
+--	X"1A" after 1600 ns,
+--	X"2B" after 1680 ns,
+--	X"3C" after 1760 ns,
+--	X"4D" after 1840 ns,
+--	X"5E" after 1920 ns,
+--	X"6F" after 2000 ns,
+--	X"00" after 2080 ns,
+--	X"01" after 2640 ns,
+--	X"02" after 2720 ns,
+--	X"00" after 2800 ns;
+
+--	-- MULTIPLE TRANSMISSION TEST avec TABORT
+--	RESETN <= '0','1' after 25 ns;
+--	TAVAILP <= '0','1' after 90 ns, '0' after 1280 ns, '1' after 1530 ns, '0' after 2890 ns;
+--	TLASTP<='0','1' after 1280 ns,'0' after 1360 ns,'1' after 2720 ns,'0' after 2800 ns;
+--	TABORTP <= '0','1' after 880 ns ,'0' after 960 ns; --Test Arret brutal de transmission
+--	
+--	TDATAI <= X"00",
+--	X"1A" after 160 ns,
+--	X"2B" after 240 ns,
+--	X"3C" after 320 ns,
+--	X"4D" after 400 ns,
+--	X"5E" after 480 ns,
+--	X"6F" after 560 ns,
+--	X"00" after 640 ns,
+--	X"01" after 1200 ns,
+--	X"02" after 1280 ns,
+--	X"00" after 1360 ns,
+--	X"1A" after 1600 ns,
+--	X"2B" after 1680 ns,
+--	X"3C" after 1760 ns,
+--	X"4D" after 1840 ns,
+--	X"5E" after 1920 ns,
+--	X"6F" after 2000 ns,
+--	X"00" after 2080 ns,
+--	X"01" after 2640 ns,
+--	X"02" after 2720 ns,
+--	X"00" after 2800 ns;
 
 --	-- TRANSMISSION TEST avec TABORT
 --	RESETN <= '0','1' after 25 ns;
@@ -301,51 +329,51 @@ BEGIN
 --	
 --	TLASTP<='0','1' after 1300ns, '0' after 1400 ns, '1' after 2300 ns, '0' after 2400 ns;
 
---	-- Collision Multiple Test (310 ns de backoff max.
---	RESETN <= '0','1' after 10ns;
--- TAVAILP <= '0','1' after 90ns, '0' after 880ns, '1' after 1530ns, '0' after 1920ns;
---	TLASTP<='0';
---	
---	TDATAI <= X"00",
---	X"AA" after 160ns,
---	X"CC" after 240ns,
---	X"BB" after 320ns,
---	X"DD" after 400ns,
---	X"FF" after 480ns,
---	X"EE" after 560ns,
---	X"00" after 640ns,
---	X"01" after 1200ns,
---	X"02" after 1280ns,
---	X"00" after 1360ns,
---	X"AA" after 1680ns,
---	X"CC" after 1760ns,
---	X"BB" after 1840ns,
---	X"DD" after 1920ns,
---	X"FF" after 2000ns,
---	X"EE" after 2080ns,
---	X"00" after 2640ns,
---	X"01" after 2720ns,
---	X"02" after 2800ns,
---	X"00" after 2880ns;
---	
---	RENABP <= '0','1' after 800ns;
---	RDATAI <= "00000000", 
---	X"AB" after 800ns,
---	X"AA" after 880ns,
---	X"BB" after 960ns,
---	"10101010" after 1040ns,
---	"10101010" after 1120ns,
---	"10101010" after 1200ns,
---	"10101010" after 1280ns,
---	X"00" after 1360ns,
---	X"AB" after 1840ns,
---	X"AA" after 1920ns,
---	X"BB" after 2000ns,
---	"10101010" after 2080ns,
---	"10101010" after 2160ns,
---	"10101010" after 2240ns,
---	"10101010" after 2320ns,
---	X"00" after 2400ns;
---	
---	
+	-- Collision Multiple Test (310 ns de backoff max.
+	RESETN <= '0','1' after 10 ns;
+	TAVAILP <= '0','1' after 90 ns, '0' after 890 ns, '1' after 1530 ns, '0' after 1850 ns;
+	TLASTP<='0';
+	
+	TDATAI <= X"00",
+	X"1A" after 160 ns,
+	X"2B" after 240 ns,
+	X"3C" after 320 ns,
+	X"4D" after 400 ns,
+	X"5E" after 480 ns,
+	X"6F" after 560 ns,
+	X"00" after 640 ns,
+	X"01" after 1200 ns,
+	X"02" after 1280 ns,
+	X"00" after 1360 ns,
+	X"1A" after 1600 ns,
+	X"2B" after 1680 ns,
+	X"3C" after 1760 ns,
+	X"4D" after 1840 ns,
+	X"5E" after 1920 ns,
+	X"6F" after 2000 ns,
+	X"00" after 2080 ns,
+	X"01" after 2640 ns,
+	X"02" after 2720 ns,
+	X"00" after 2800 ns;
+	
+	RENABP <= '0','1' after 800 ns;
+	RDATAI <= "00000000", 
+	X"AB" after 800 ns,
+	X"AA" after 880 ns,
+	X"BB" after 960 ns,
+	"10101010" after 1040 ns,
+	"10101010" after 1120 ns,
+	"10101010" after 1200 ns,
+	"10101010" after 1280 ns,
+	X"00" after 1360 ns,
+	X"AB" after 1760 ns,
+	X"AA" after 1840 ns,
+	X"BB" after 1920 ns,
+	"10101010" after 2000 ns,
+	"10101010" after 2080 ns,
+	"10101010" after 2160 ns,
+	"10101010" after 2240 ns,
+	X"00" after 2320 ns;
+	
+	
 END;
