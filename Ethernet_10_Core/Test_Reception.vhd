@@ -145,14 +145,13 @@ BEGIN
   
 
 	-- insert stimulus here 
+	--
+	-- BONNE ADRESSE et ensuite mauvaise addresse
+	--
+	-- Tous les 8 tops d'horloge on change de case de la trame
 --	RESETN <= '0','1' after 10ns;
 --	RENABP <= '0','1' after 90ns;
-----	
-----	
-----	--
-----	-- BONNE ADRESSE et ensuite mauvaise addresse
-----	--
-----	-- Tous les 8 tops d'horloge on change de case de la trame
+--	
 --	RDATAI <= "10101011",
 --	X"AA" after 160ns,
 --	X"BB" after 240ns,
@@ -175,23 +174,51 @@ BEGIN
 --	X"11" after 1760ns,
 --	"10101011" after 1960ns;
 	
-	-- TRANSMISSION TEST
+--	-- TRANSMISSION TEST
+--	RESETN <= '0','1' after 25 ns;
+-- TAVAILP <= '0','1' after 90ns, '0' after 1440ns;
+-- TABORTP <= '0';
+--	TLASTP<='0','1' after 1280ns,'0' after 1360ns;
+--	
+--	TDATAI <= X"00",
+--	X"1A" after 160ns,
+--	X"2B" after 240ns,
+--	X"3C" after 320ns,
+--	X"4D" after 400ns,
+--	X"5E" after 480ns,
+--	X"6F" after 560ns,
+--	X"00" after 640ns,
+--	X"01" after 1200ns,
+--	X"02" after 1280ns,
+--	X"00" after 1360ns;
+
+--	-- MULTIPLE TRANSMISSION TEST
 	RESETN <= '0','1' after 25 ns;
-   TAVAILP <= '0','1' after 90ns, '0' after 1440ns;
-   TABORTP <= '0';
-	TLASTP<='0','1' after 1280ns,'0' after 1360ns;
+	TAVAILP <= '0','1' after 90 ns, '0' after 1450 ns, '1' after 1530 ns, '0' after 2890 ns;
+	TABORTP <= '0';
+	TLASTP<='0','1' after 1280 ns,'0' after 1360 ns,'1' after 2720 ns,'0' after 2800 ns;
 	
 	TDATAI <= X"00",
-	X"1A" after 160ns,
-	X"2B" after 240ns,
-	X"3C" after 320ns,
-	X"4D" after 400ns,
-	X"5E" after 480ns,
-	X"6F" after 560ns,
-	X"00" after 640ns,
-	X"01" after 1200ns,
-	X"02" after 1280ns,
-	X"00" after 1360ns;
+	X"1A" after 160 ns,
+	X"2B" after 240 ns,
+	X"3C" after 320 ns,
+	X"4D" after 400 ns,
+	X"5E" after 480 ns,
+	X"6F" after 560 ns,
+	X"00" after 640 ns,
+	X"01" after 1200 ns,
+	X"02" after 1280 ns,
+	X"00" after 1360 ns,
+	X"1A" after 1600 ns,
+	X"2B" after 1680 ns,
+	X"3C" after 1760 ns,
+	X"4D" after 1840 ns,
+	X"5E" after 1920 ns,
+	X"6F" after 2000 ns,
+	X"00" after 2080 ns,
+	X"01" after 2640 ns,
+	X"02" after 2720 ns,
+	X"00" after 2800 ns;
 
 --	-- TRANSMISSION TEST avec TABORT
 --	RESETN <= '0','1' after 25 ns;
