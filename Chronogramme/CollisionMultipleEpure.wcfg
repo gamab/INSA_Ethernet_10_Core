@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/gb/Documents/4IR/FPGA-Proj/INSA_Ethernet_10_Core/Ethernet_10_Core/Test_Reception_isim_beh1.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="test_reception" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/test_reception/resetn" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rdatai" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rdatai[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdatai[7:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/renabp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">renabp</obj_property>
+      <obj_property name="ObjectShortName">renabp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rcvngp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rcvngp</obj_property>
+      <obj_property name="ObjectShortName">rcvngp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rstartp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rstartp</obj_property>
+      <obj_property name="ObjectShortName">rstartp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rcleanp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rcleanp</obj_property>
+      <obj_property name="ObjectShortName">rcleanp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/tavailp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tavailp</obj_property>
+      <obj_property name="ObjectShortName">tavailp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/tdatai" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tdatai[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tdatai[7:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/trnsmtp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">trnsmtp</obj_property>
+      <obj_property name="ObjectShortName">trnsmtp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/tdatao" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tdatao[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tdatao[7:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/tstartp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tstartp</obj_property>
+      <obj_property name="ObjectShortName">tstartp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/treaddp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">treaddp</obj_property>
+      <obj_property name="ObjectShortName">treaddp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/tdonep" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tdonep</obj_property>
+      <obj_property name="ObjectShortName">tdonep</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/tbackoff" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tbackoff</obj_property>
+      <obj_property name="ObjectShortName">tbackoff</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/uut/backoff_t" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">backoff_t[24:0]</obj_property>
+      <obj_property name="ObjectShortName">backoff_t[24:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/tsocolp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tsocolp</obj_property>
+      <obj_property name="ObjectShortName">tsocolp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#008080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/tcollmul" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tcollmul</obj_property>
+      <obj_property name="ObjectShortName">tcollmul</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#008080</obj_property>
+   </wvobject>
+</wave_config>
