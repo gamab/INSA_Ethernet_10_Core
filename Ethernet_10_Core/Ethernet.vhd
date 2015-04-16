@@ -243,6 +243,7 @@ begin
 			BACKOFF_T <= "0000000000000000000000000";
 			nb_coll_conseq := 0;
 			TCOLLMUL <= '0';
+			TRNSMTP_aux <= '0';
 		else
 			if nb_coll_conseq = 2 then
 				TCOLLMUL <= '1';
@@ -394,6 +395,10 @@ begin
 					end if;
 					
 				end if;
+			else
+				--Si on est ici, par défaut on met 0 en sortie
+				--Puisqu'on n'est ni en transmission ni en collision
+				TDATAO <= X"00";
 			end if;
 		end if;
 		
