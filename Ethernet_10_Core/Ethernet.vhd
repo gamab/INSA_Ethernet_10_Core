@@ -109,6 +109,8 @@ begin
 			compteurAddr := 0;
 			RCVNGP_aux<='0';
 			error_check_add:=FALSE;
+			RSMATIP <= '0';
+			RDATAO <= X"00";
 		else
 			if RENABP='1' then
 				--faut il le mettre avant ?
