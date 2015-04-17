@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/gb/Documents/4IR/FPGA-Proj/INSA_Ethernet_10_Core/Ethernet_10_Core/Test_Reception_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="test_reception" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/test_reception/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/renabp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">renabp</obj_property>
+      <obj_property name="ObjectShortName">renabp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rdatai" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rdatai[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdatai[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rcvngp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rcvngp</obj_property>
+      <obj_property name="ObjectShortName">rcvngp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rsmatip" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rsmatip</obj_property>
+      <obj_property name="ObjectShortName">rsmatip</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rdatao" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rdatao[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdatao[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rstartp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rstartp</obj_property>
+      <obj_property name="ObjectShortName">rstartp</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rbytep" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rbytep</obj_property>
+      <obj_property name="ObjectShortName">rbytep</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_reception/rdonep" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rdonep</obj_property>
+      <obj_property name="ObjectShortName">rdonep</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+</wave_config>
