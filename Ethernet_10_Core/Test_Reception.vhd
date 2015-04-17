@@ -62,7 +62,7 @@ ARCHITECTURE behavior OF Test_Reception IS
            TREADDP : out  STD_LOGIC;
            TSTARTP : out  STD_LOGIC;
            TBACKOFF : out  STD_LOGIC;
-           TCOLLMUL : out  STD_LOGIC);
+           TSMCOLP : out  STD_LOGIC);
         
     END COMPONENT;
 			--COUNTER_CHECK : OUT  std_logic;
@@ -98,7 +98,7 @@ ARCHITECTURE behavior OF Test_Reception IS
    signal TREADDP : std_logic;
    signal TSTARTP : std_logic;
    signal TBACKOFF : std_logic;
-   signal TCOLLMUL : std_logic;
+   signal TSMCOLP : std_logic;
  
 BEGIN
  
@@ -126,7 +126,7 @@ BEGIN
           TREADDP => TREADDP,
           TSTARTP => TSTARTP,
           TBACKOFF => TBACKOFF,
-          TCOLLMUL => TCOLLMUL
+          TSMCOLP => TSMCOLP
         );
 		  
 		
@@ -329,7 +329,7 @@ BEGIN
 --	
 --	TLASTP<='0','1' after 1300ns, '0' after 1400 ns, '1' after 2300 ns, '0' after 2400 ns;
 
-	-- Collision Multiple Test (310 ns de backoff max.
+	-- Collision Multiple Test (310 ns de backoff max).
 	RESETN <= '0','1' after 10 ns;
 	TAVAILP <= '0','1' after 90 ns, '0' after 890 ns, '1' after 1530 ns, '0' after 1850 ns;
 	TLASTP<='0';

@@ -55,7 +55,7 @@ entity Ethernet is
            TREADDP : out  STD_LOGIC;
            TSTARTP : out  STD_LOGIC;
            TBACKOFF : out  STD_LOGIC;
-           TCOLLMUL : out  STD_LOGIC);
+           TSMCOLP : out  STD_LOGIC);
 end Ethernet;
 			  --COUNTER_CHECK : out STD_LOGIC;
 			  --DIFF_CHECK : out STD_LOGIC_VECTOR (2 downto 0));
@@ -76,6 +76,8 @@ architecture Behavioral of Ethernet is
 	constant NOADDRI: STD_LOGIC_VECTOR(47 downto 0):=X"AABBCCDDEEFF";
 	signal RCVNGP_aux : STD_LOGIC;
 	signal TSOCOLP_aux : STD_LOGIC;
+	signal TCOLPREV : STD_LOGIC;
+	signal TSMCOLP_aux : STD_LOGIC;
 	signal TRNSMTP_aux : STD_LOGIC;
 	signal COLLISION_FLAG : STD_LOGIC;
 	signal LFSR_REG : STD_LOGIC_VECTOR(24 downto 0);
@@ -242,18 +244,19 @@ begin
 			compteur_bit_collision:=0;
 			BACKOFF_T <= "0000000000000000000000000";
 			nb_coll_conseq := 0;
-			TCOLLMUL <= '0';
 			TRNSMTP_aux <= '0';
 			TDATAO <= X"00";
 		else
-			if nb_coll_conseq = 2 then
-				TCOLLMUL <= '1';
+			if nb_coll_conseq >= 1 then
+				TCOLPREV <= '1';
+			else
+				TCOLPREV <= '0'; 
 			end if;
 			if BACKOFF_T /= "0000000000000000000000000" then
 				--On est en backoff, il faut donc attendre 
 				BACKOFF_T <= BACKOFF_T - 1;
 				TBACKOFF <= '1';
-			elsif TABORTP='1' or TSOCOLP_aux = '1' or COLLISION_FLAG = '1' then
+			elsif TABORTP='1' or TSOCOLP_aux = '1' or TSMCOLP_aux = '1' or COLLISION_FLAG = '1' then
 				-- reset des variables pour la transmission normale
 				compteurAddr := 0;
 				error_check_add:=FALSE;
@@ -412,14 +415,20 @@ begin
 	begin 
 		wait until CLK'event and CLK = '1';
 		
-		if RCVNGP_aux = '1' and TRNSMTP_aux = '1' then
+		if RCVNGP_aux = '1' and TRNSMTP_aux = '1' and TCOLPREV = '1' then
+			TSMCOLP_aux <= '1';
+			TSOCOLP_aux <= '0';
+		elsif RCVNGP_aux = '1' and TRNSMTP_aux = '1' then
 			TSOCOLP_aux <= '1';
+			TSMCOLP_aux <= '0';
 		else
+			TSMCOLP_aux <= '0';
 			TSOCOLP_aux <= '0';
 		end if;
 	end process;
 	
 	TSOCOLP <= TSOCOLP_aux;
+	TSMCOLP <= TSMCOLP_aux;
 
 	lfsr_proc : process
 		variable suivant : STD_LOGIC;
