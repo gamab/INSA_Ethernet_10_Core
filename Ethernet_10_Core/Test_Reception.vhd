@@ -172,45 +172,45 @@ BEGIN
 --	"10101011" after 1360 ns,
 --	"00000000" after 1440 ns;
 
-	-- RECEPTION TEST DESTINATAIRE PAS NOUS
-	RESETN <= '0','1' after 10 ns;
-	RENABP <= '0','1' after 30 ns;
-	
-	RDATAI <= "10101011" after 80 ns,
-	X"AA" after 160 ns,
-	X"BB" after 240 ns,
-	X"CC" after 320 ns,
-	X"DD" after 400 ns,
-	X"00" after 480 ns,
-	X"FF" after 560 ns,
-	X"1A" after 640 ns,
-	X"2B" after 720 ns,
-	X"3C" after 800 ns,
-	X"4D" after 880 ns,
-	X"5E" after 960 ns,
-	X"6F" after 1040 ns,
-	X"00" after 1120 ns,
-	X"01" after 1200 ns,
-	X"02" after 1280 ns,
-	"10101011" after 1360 ns,
-	"10101011" after 1440 ns,
-	X"AA" after 1520 ns,
-	X"BB" after 1600 ns,
-	X"CC" after 1680 ns,
-	X"DD" after 1760 ns,
-	X"EE" after 1840 ns,
-	X"FF" after 1920 ns,
-	X"1A" after 2000 ns,
-	X"2B" after 2080 ns,
-	X"3C" after 2160 ns,
-	X"4D" after 2240 ns,
-	X"5E" after 2320 ns,
-	X"6F" after 2400 ns,
-	X"00" after 2480 ns,
-	X"01" after 2560 ns,
-	X"02" after 2640 ns,
-	"10101011" after 2720 ns,
-	"00000000" after 2800 ns;
+--	-- RECEPTION TEST DESTINATAIRE PAS NOUS
+--	RESETN <= '0','1' after 10 ns;
+--	RENABP <= '0','1' after 30 ns;
+--	
+--	RDATAI <= "10101011" after 80 ns,
+--	X"AA" after 160 ns,
+--	X"BB" after 240 ns,
+--	X"CC" after 320 ns,
+--	X"DD" after 400 ns,
+--	X"00" after 480 ns,
+--	X"FF" after 560 ns,
+--	X"1A" after 640 ns,
+--	X"2B" after 720 ns,
+--	X"3C" after 800 ns,
+--	X"4D" after 880 ns,
+--	X"5E" after 960 ns,
+--	X"6F" after 1040 ns,
+--	X"00" after 1120 ns,
+--	X"01" after 1200 ns,
+--	X"02" after 1280 ns,
+--	"10101011" after 1360 ns,
+--	"10101011" after 1440 ns,
+--	X"AA" after 1520 ns,
+--	X"BB" after 1600 ns,
+--	X"CC" after 1680 ns,
+--	X"DD" after 1760 ns,
+--	X"EE" after 1840 ns,
+--	X"FF" after 1920 ns,
+--	X"1A" after 2000 ns,
+--	X"2B" after 2080 ns,
+--	X"3C" after 2160 ns,
+--	X"4D" after 2240 ns,
+--	X"5E" after 2320 ns,
+--	X"6F" after 2400 ns,
+--	X"00" after 2480 ns,
+--	X"01" after 2560 ns,
+--	X"02" after 2640 ns,
+--	"10101011" after 2720 ns,
+--	"00000000" after 2800 ns;
 	
 --	-- TRANSMISSION TEST
 --	RESETN <= '0','1' after 25 ns;
@@ -367,51 +367,51 @@ BEGIN
 --	
 --	TLASTP<='0','1' after 1300ns, '0' after 1400 ns, '1' after 2300 ns, '0' after 2400 ns;
 
---	-- Collision Multiple Test (310 ns de backoff max).
---	RESETN <= '0','1' after 10 ns;
---	TAVAILP <= '0','1' after 90 ns, '0' after 890 ns, '1' after 1530 ns, '0' after 1850 ns;
---	TLASTP<='0';
---	
---	TDATAI <= X"00",
---	X"1A" after 160 ns,
---	X"2B" after 240 ns,
---	X"3C" after 320 ns,
---	X"4D" after 400 ns,
---	X"5E" after 480 ns,
---	X"6F" after 560 ns,
---	X"00" after 640 ns,
---	X"01" after 1200 ns,
---	X"02" after 1280 ns,
---	X"00" after 1360 ns,
---	X"1A" after 1600 ns,
---	X"2B" after 1680 ns,
---	X"3C" after 1760 ns,
---	X"4D" after 1840 ns,
---	X"5E" after 1920 ns,
---	X"6F" after 2000 ns,
---	X"00" after 2080 ns,
---	X"01" after 2640 ns,
---	X"02" after 2720 ns,
---	X"00" after 2800 ns;
---	
---	RENABP <= '0','1' after 800 ns;
---	RDATAI <= "00000000", 
---	X"AB" after 800 ns,
---	X"AA" after 880 ns,
---	X"BB" after 960 ns,
---	"10101010" after 1040 ns,
---	"10101010" after 1120 ns,
---	"10101010" after 1200 ns,
---	"10101010" after 1280 ns,
---	X"00" after 1360 ns,
---	X"AB" after 1760 ns,
---	X"AA" after 1840 ns,
---	X"BB" after 1920 ns,
---	"10101010" after 2000 ns,
---	"10101010" after 2080 ns,
---	"10101010" after 2160 ns,
---	"10101010" after 2240 ns,
---	X"00" after 2320 ns;
+	-- Collision Multiple Test (310 ns de backoff max).
+	RESETN <= '0','1' after 10 ns;
+	TAVAILP <= '0','1' after 90 ns, '0' after 890 ns, '1' after 1530 ns, '0' after 1850 ns;
+	TLASTP<='0';
+	
+	TDATAI <= X"00",
+	X"1A" after 160 ns,
+	X"2B" after 240 ns,
+	X"3C" after 320 ns,
+	X"4D" after 400 ns,
+	X"5E" after 480 ns,
+	X"6F" after 560 ns,
+	X"00" after 640 ns,
+	X"01" after 1200 ns,
+	X"02" after 1280 ns,
+	X"00" after 1360 ns,
+	X"1A" after 1600 ns,
+	X"2B" after 1680 ns,
+	X"3C" after 1760 ns,
+	X"4D" after 1840 ns,
+	X"5E" after 1920 ns,
+	X"6F" after 2000 ns,
+	X"00" after 2080 ns,
+	X"01" after 2640 ns,
+	X"02" after 2720 ns,
+	X"00" after 2800 ns;
+	
+	RENABP <= '0','1' after 800 ns;
+	RDATAI <= "00000000", 
+	X"AB" after 800 ns,
+	X"AA" after 880 ns,
+	X"BB" after 960 ns,
+	"10101010" after 1040 ns,
+	"10101010" after 1120 ns,
+	"10101010" after 1200 ns,
+	"10101010" after 1280 ns,
+	X"00" after 1360 ns,
+	X"AB" after 1760 ns,
+	X"AA" after 1840 ns,
+	X"BB" after 1920 ns,
+	"10101010" after 2000 ns,
+	"10101010" after 2080 ns,
+	"10101010" after 2160 ns,
+	"10101010" after 2240 ns,
+	X"00" after 2320 ns;
 	
 	
 END;
