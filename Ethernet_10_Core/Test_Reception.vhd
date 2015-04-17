@@ -149,7 +149,30 @@ BEGIN
 	-- BONNE ADRESSE et ensuite mauvaise addresse
 	--
 	-- Tous les 8 tops d'horloge on change de case de la trame
-	-- RECEPTION TEST
+--	-- RECEPTION TEST
+--	RESETN <= '0','1' after 10 ns;
+--	RENABP <= '0','1' after 30 ns;
+--	
+--	RDATAI <= "10101011" after 80 ns,
+--	X"AA" after 160 ns,
+--	X"BB" after 240 ns,
+--	X"CC" after 320 ns,
+--	X"DD" after 400 ns,
+--	X"EE" after 480 ns,
+--	X"FF" after 560 ns,
+--	X"1A" after 640 ns,
+--	X"2B" after 720 ns,
+--	X"3C" after 800 ns,
+--	X"4D" after 880 ns,
+--	X"5E" after 960 ns,
+--	X"6F" after 1040 ns,
+--	X"00" after 1120 ns,
+--	X"01" after 1200 ns,
+--	X"02" after 1280 ns,
+--	"10101011" after 1360 ns,
+--	"00000000" after 1440 ns;
+
+	-- RECEPTION TEST DESTINATAIRE PAS NOUS
 	RESETN <= '0','1' after 10 ns;
 	RENABP <= '0','1' after 30 ns;
 	
@@ -158,7 +181,7 @@ BEGIN
 	X"BB" after 240 ns,
 	X"CC" after 320 ns,
 	X"DD" after 400 ns,
-	X"EE" after 480 ns,
+	X"00" after 480 ns,
 	X"FF" after 560 ns,
 	X"1A" after 640 ns,
 	X"2B" after 720 ns,
@@ -170,7 +193,24 @@ BEGIN
 	X"01" after 1200 ns,
 	X"02" after 1280 ns,
 	"10101011" after 1360 ns,
-	"00000000" after 1440 ns;
+	"10101011" after 1440 ns,
+	X"AA" after 1520 ns,
+	X"BB" after 1600 ns,
+	X"CC" after 1680 ns,
+	X"DD" after 1760 ns,
+	X"EE" after 1840 ns,
+	X"FF" after 1920 ns,
+	X"1A" after 2000 ns,
+	X"2B" after 2080 ns,
+	X"3C" after 2160 ns,
+	X"4D" after 2240 ns,
+	X"5E" after 2320 ns,
+	X"6F" after 2400 ns,
+	X"00" after 2480 ns,
+	X"01" after 2560 ns,
+	X"02" after 2640 ns,
+	"10101011" after 2720 ns,
+	"00000000" after 2800 ns;
 	
 --	-- TRANSMISSION TEST
 --	RESETN <= '0','1' after 25 ns;
