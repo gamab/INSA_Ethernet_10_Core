@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/gb/Documents/4IR/FPGA-Proj/INSA_Ethernet_10_Core/Ethernet_10_Core/Test_Reception_isim_beh1.wdb" id="1" type="auto">
+      <db_ref path="/home/gb/Documents/4IR/FPGA-Proj/INSA_Ethernet_10_Core/Ethernet_10_Core/Test_Reception_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="std_logic_1164" />
             <top_module name="std_logic_arith" />
@@ -105,7 +105,7 @@
    <wvobject fp_name="/test_reception/uut/backoff_t" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">backoff_t[24:0]</obj_property>
       <obj_property name="ObjectShortName">backoff_t[24:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="CustomSignalColor">#800000</obj_property>
    </wvobject>
