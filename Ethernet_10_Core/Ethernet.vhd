@@ -57,18 +57,7 @@ entity Ethernet is
            TBACKOFF : out  STD_LOGIC;
            TSMCOLP : out  STD_LOGIC);
 end Ethernet;
-			  --COUNTER_CHECK : out STD_LOGIC;
-			  --DIFF_CHECK : out STD_LOGIC_VECTOR (2 downto 0));
-           --TSOCOLP : out  STD_LOGIC;
-           --TABORTP : in  STD_LOGIC;
-           --TAVAILP : in  STD_LOGIC;
-           --TRNSMTP : out  STD_LOGIC;
-           --TDATAI : in  STD_LOGIC_VECTOR (7 downto 0);
-           --TDATAO : out  STD_LOGIC_VECTOR (7 downto 0);
-           --TDONEP : out  STD_LOGIC;
-           --TFINISH : in  STD_LOGIC;
-           --TREADDP : out  STD_LOGIC;
-           --TSTARTP : out  STD_LOGIC);
+			  
 
 architecture Behavioral of Ethernet is
 	--VARIABLES--
@@ -101,9 +90,6 @@ begin
 		RBYTEP <= '0';
 		RDONEP <= '0';
 		
-		--DIFF_CHECK <= "000";
-		--COUNTER_CHECK <= '0';
-		
 		if RESETN='0' then 
 			compteur := 7;
 			compteurAddr := 0;
@@ -113,12 +99,10 @@ begin
 			RDATAO <= X"00";
 		else
 			if RENABP='1' then
-				--faut il le mettre avant ?
 				compteur := compteur + 1;
 				
 				--Tous les 8 clock on lit un octet
 				if (compteur = 8) then -- octet reçu 
-					--COUNTER_CHECK <= '1';
 					--remise du compteur de top d'horloge à 0
 					compteur:=0;
 					
@@ -147,31 +131,26 @@ begin
 							if (NOADDRI(47 downto 40)=RDATAI) then 
 								compteurAddr := compteurAddr+1;
 							else
-								--DIFF_CHECK <= "001";
 								error_check_add:=TRUE;
 							end if;
 						elsif (compteurAddr=1) then 
 							if (NOADDRI(39 downto 32)=RDATAI) then compteurAddr := compteurAddr+1;
 							else 
-								--DIFF_CHECK <= "010";
 								error_check_add:=TRUE;
 							end if;
 						elsif (compteurAddr=2) then 
 							if (NOADDRI(31 downto 24)=RDATAI) then compteurAddr := compteurAddr+1;
 							else 
-								--DIFF_CHECK <= "011";
 								error_check_add:=TRUE;
 							end if;
 						elsif (compteurAddr=3) then 
 							if (NOADDRI(23 downto 16)=RDATAI) then compteurAddr := compteurAddr+1;
 							else 
-								--DIFF_CHECK <= "100";
 								error_check_add:=TRUE;
 							end if;
 						elsif (compteurAddr=4) then 
 							if (NOADDRI(15 downto 8)=RDATAI) then compteurAddr := compteurAddr+1;
 							else 
-								--DIFF_CHECK <= "101";
 								error_check_add:=TRUE;
 							end if;
 						elsif (compteurAddr=5) then 
@@ -179,7 +158,6 @@ begin
 								compteurAddr := compteurAddr+1;
 								RSMATIP <= '1';
 							else 
-								--DIFF_CHECK <= "110";
 								error_check_add:=TRUE;
 							end if;
 						else
@@ -227,7 +205,7 @@ begin
 		variable error_check_add : BOOLEAN;
 		variable compteur_step : CINQ_INT;
 		variable compteur_bit_collision : CINQ_INT;
-		variable nb_coll_conseq : HUIT_INT; --Huit collisions consecutives => DEAD
+		variable nb_coll_conseq : INTEGER;
 	begin 
 		wait until CLK'event and CLK = '1';
 		
@@ -263,7 +241,6 @@ begin
 				compteurAddr := 0;
 				error_check_add:=FALSE;
 				compteur_step :=0;
-				--Il faut peut-etre transmettre les 32 bits of alternating ones and zeros 
 				compteur := compteur +1;
 				--Tous les 8 clock on lit un octet
 				if (compteur = 8) then -- octet reçu 
@@ -299,7 +276,6 @@ begin
 				--Tous les 8 clock on lit un octet
 				if (compteur = 8) then -- octet reçu 
 						
-					--COUNTER_CHECK <= '1';
 					--remise du compteur de top d'horloge à 0
 					compteur:=0;
 					TRNSMTP_aux <= '1';
